@@ -54,7 +54,7 @@ def _pick_env(env_name):
     elif os.path.exists(env_name) and "bin" in _list_dirs(env_name):
         # if the environment name is non-stamdard path, i.e. found in
         # the envs_dir, make sure it contains a bin directory
-        envs_dir, env_name = os.path.split(env_name)
+        envs_dir, env_name = os.path.split(env_name.rstrip(os.path.sep))
 
         # create a named tuple for self-documenting code
         Env = namedtuple('Env', ['name', 'path', 'bin_dir', 'envs_dir'])
